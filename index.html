@@ -5,10 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Interface Binmam</title>
+
     
 </head>
 <body>
-    <h1>Interface Binmam</h1>
-    
+    <div class="js-app">
+        <header class="js-header header"></header>
+        <div class="js-sidebar sidebar"></div>
+        <div class="js-menu"></div>
+        <div class="js-table"></div>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="dist/bundle.js"></script>
+    <script>
+            'use strict';
+            new window.App({el: document.querySelector(".js-app")});
+        </script>
 </body>
 </html>
