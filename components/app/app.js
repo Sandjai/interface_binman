@@ -38,7 +38,7 @@ class App {
             el: el.querySelector('.js-menu')
         })
 
-        this.menu.render('65');
+        this.menu.render('67');
         
     }
 }
