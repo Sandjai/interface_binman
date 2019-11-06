@@ -33,7 +33,18 @@ module.exports = {
             presets: ['@babel/preset-env']
         }
         }
-    }
+    },
+    {
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      use: [
+               {
+                   loader: 'file-loader?name=./assets/fonts/[name].[ext]'
+               },
+               {
+                   loader: 'file-loader?name=./assets/fonts/Roboto/[name].[ext]'
+               }
+           ]
+  }
     ]
   },
   plugins: [
