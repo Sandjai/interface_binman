@@ -1,2 +1,4 @@
-li.sidebar__icon(data-partition=par)
-    img(src=source)
+mixin addIcon(source, par)
+    li.sidebar__icon(data-partition=par)
+        img(src=source)
++addIcon(item.source, item.pug)

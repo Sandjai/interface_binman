@@ -1,6 +1,7 @@
 'use strict';
 import {Header} from "./../header/header";
 import './app.sass';
+import { Sidebar } from "../sidebar/sidebar";
 
 class App {
     constructor({el}) {
@@ -9,6 +10,18 @@ class App {
         })
 
         this.header.render();
+
+        this.sidebar = new Sidebar({
+            el: el.querySelector(".js-sidebar")
+            
+        })
+
+        this.sidebar.render([
+            {
+                source: "assets/images/Home.svg",
+                par: "Home"
+            }
+        ])
         
     }
 }

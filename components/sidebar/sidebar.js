@@ -1,4 +1,4 @@
-import template from "sidebar.pug";
+import template from "./sidebar.pug";
 
 export class Sidebar {
     constructor({el}) {
@@ -7,7 +7,18 @@ export class Sidebar {
 
     }
 
-    render() {
-        
+    /**
+     * @param {Array}
+     */
+
+    render(items) {
+        this.el.innerHTML = template({items});
+    }
+
+    /**
+     * @param {}
+     */
+    get list() {
+        return this.el.querySelector(".sidebar__ico");
     }
 }
