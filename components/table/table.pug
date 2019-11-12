@@ -1,0 +1,9 @@
+table
+    thead
+        tr
+            each item in headers
+                td
+                    h4=item
+    tbody
+        each item in content
+            include __rowItem/table__rowItem.pug
