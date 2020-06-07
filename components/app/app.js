@@ -4,6 +4,7 @@ import './app.sass';
 import { Sidebar } from "../sidebar/sidebar";
 import { Menu } from "../menu/menu";
 import { Table } from "../table/table";
+import { Popup } from "../popup/popup";
 
 
 class App {
@@ -40,6 +41,7 @@ class App {
         })
 
         this.menu.render('67');
+        
 
         this.table = new Table ({
             el: document.querySelector(".js-table")
@@ -47,6 +49,17 @@ class App {
 
         this.table.render({headers: ["Соискатель", "Телефон", "E-mail", "Оценка соискателя"], 
         content: [["Бинман Иван Натанович", "+7 (900) 800-70-60", "ioan@binman.ru", "Средний балл: 4.0"], ["Бинман Иван Натанович", "+7 (900) 800-70-60", "ioan@binman.ru", "Средний балл: 4.0"]]});
+        
+        this.popup = new Popup ({
+            el: el.querySelector(".js-popup")
+        })
+
+        
+
+        
+
+        this.menu.addEventListener("showForm", () => this.popup.render())
+
         
     }
 }
