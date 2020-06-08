@@ -53,9 +53,5 @@ export class Menu {
             this.el.addEventListener(eveName, callback);
         }
 
-    
-
-    
-
-    
+ 
 }
