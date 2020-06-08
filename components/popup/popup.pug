@@ -1,4 +1,11 @@
-header
-    h4="Добавление соискателя"
-section.form
-    h3="Основные данные"
+section.popup_container
+    header
+        .header__text
+            h4="Добавление соискателя"
+    section.form
+        h3="Основные данные"
+        form(action="", method="post")
+            ul
+                li
+                    label(for="nameId")="ФИО"
+                    input(type="text")#nameId

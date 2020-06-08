@@ -9,6 +9,7 @@ export class Popup {
     }
 
     render() {
+        this.el.classList.add('active');
         this.el.innerHTML = template();
     }
 
