@@ -53,11 +53,7 @@ class App {
         this.popup = new Popup ({
             el: el.querySelector(".js-popup")
         })
-
         
-
-        
-
         this.menu.addEventListener("showForm", () => this.popup.render())
 
         
