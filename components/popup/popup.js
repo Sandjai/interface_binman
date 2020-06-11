@@ -14,6 +14,12 @@ export class Popup {
     }
 
 
+    destroy() {
+        this.el.classList.remove('active');
+        this.el.innerHTML = "";
+    }
+
+
 
 
 }
