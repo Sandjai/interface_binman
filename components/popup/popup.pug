@@ -3,17 +3,53 @@ section.popup_container
     header
         .header__text
             h4="Добавление соискателя"
-    section.form
-        h3="Основные данные"
+    section.popup_container___form
+
         form(action="", method="post")
             ul
-                li
-                    label(for="nameId")="ФИО"
-                    input(type="text", placeholder="Введите ФИО")#nameId
-                li
-                    label(for="vacansyId")="Вакансия"
-                    input(type="text", placeholder="Выберите вакансию")#vacansyId
-                li
-                    label(for="photoId")="Фотография"
-                    input(type="text", placeholder="Введите ФИО")#photoId
+                .form__group
+                    h3="Основные данные"
+                    li
+                        label(for="nameId")="ФИО"
+                        input(type="text", name="flname", placeholder="Введите ФИО")#nameId
+                    li
+                        label(for="vacansyId")="Вакансия"
+                        input(type="text", name="vacansy", placeholder="Выберите вакансию")#vacansyId
+                    li
+                        label(for="photoId")="Фотография"
+                        <p class="intro">Размер файла вложения не должен превышать 5 Мб, для загрузки допустимы следующие форматы файлов: jpg, png</p>
+                        input(type="file", name="photo", placeholder="Выберите файл")#photoId
+
+                .form__group
+                    h3="Контактные данные"
+                    li
+                        label(for="phoneId")="Номер телефона"
+                        input(type="text", name="phone", placeholder="Введите номер телефона")#phoneId
+                    li
+                        label(for="emailId")="E-mail"
+                        input(type="text", name="email", placeholder="Введите адрес электронной почты")#emailId
+
+                .form__group
+                    h3="Резюме и результаты тестового задания"
+                    li
+                        label(for="photoId")="Резюме"
+                        <p class="intro">Размер файла вложения не должен превышать 50 Мб, для загрузки допустимы следующие форматы файлов: pdf, doc</p>
+                        input(type="file", name="resume", placeholder="Выберите файл")#photoId
+                    li
+                        label(for="photoId")="Архив с результатами тестового задания"
+                        <p class="intro">Размер файла вложения не должен превышать 50 Мб, для загрузки допустимы следующие форматы файлов: zip, rar</p>
+                        input(type="file", name="resume", placeholder="Выберите файл")#photoId
+
+                .form__group
+                    h3="Оценка соискателя"
+                    li
+                        div.rate
+                            div
+                                label="Оценка резюме"
+                            div
+                                label="Оценка тестового задания"
+                            div
+                                label="Оценка собеседования"
+
+
 

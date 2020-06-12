@@ -1,10 +1,23 @@
-.popup_container header, .form h3, label
+.popup_container___form h3
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 16px;
+.popup_container header, label
+
+.popup_container header, .popup_container___form h3, label
     text-transform: uppercase;
     color: #475364;
 .popup_container header
     height: 54px;
     line-height: 54px;
+    
+.form__group, .popup_container header
     border-bottom: 1px solid #F4F9FB;
+    margin-bottom: 20px;
+
 .header__text
     line-height: normal;
     vertical-align: middle;
@@ -29,7 +42,7 @@ ul li *
     margin: 8px 0px;
 .popup_container form
     margin-top: 16px;
-.popup_container header, .popup_container .form
+.popup_container header, .popup_container___form
     margin-right: 25px;
     margin-left: 25px;
 input[type="text"]
@@ -51,7 +64,7 @@ input[type="text"]
     right: 0px;
 .popup_close
     position: absolute;
-    top: 0px;
+    top: 12px;
     right: 660px;
     background: #ffffff;
     width: 30px;
@@ -69,3 +82,19 @@ input[type="text"]
     transform: rotate(-45deg);
 .popup_close::before
     transform: rotate(45deg);
+.intro 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+.rate
+    display: inline-block;
+    width: 100%;
+.rate div
+    display: block;
+    float: left;
+    max-width: 200px;
+    width: 100%;
+
+
