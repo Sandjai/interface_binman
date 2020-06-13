@@ -1,4 +1,4 @@
-span.popup_close
+span.popup_close(data-action="close")
 section.popup_container
     header
         .header__text
@@ -32,24 +32,59 @@ section.popup_container
                 .form__group
                     h3="Резюме и результаты тестового задания"
                     li
-                        label(for="photoId")="Резюме"
-                        <p class="intro">Размер файла вложения не должен превышать 50 Мб, для загрузки допустимы следующие форматы файлов: pdf, doc</p>
-                        input(type="file", name="resume", placeholder="Выберите файл")#photoId
+                        label(for="resumeId")="Резюме"
+                        p.intro="Размер файла вложения не должен превышать 50 Мб, для загрузки допустимы следующие форматы файлов: pdf, doc"
+                        input(type="file", name="resume", placeholder="Выберите файл")#resumeId
                     li
-                        label(for="photoId")="Архив с результатами тестового задания"
-                        <p class="intro">Размер файла вложения не должен превышать 50 Мб, для загрузки допустимы следующие форматы файлов: zip, rar</p>
-                        input(type="file", name="resume", placeholder="Выберите файл")#photoId
+                        label(for="testresId")="Архив с результатами тестового задания"
+                        p.intro="Размер файла вложения не должен превышать 50 Мб, для загрузки допустимы следующие форматы файлов: zip, rar"
+                        input(type="file", name="testres", placeholder="Выберите файл")#testresId
 
                 .form__group
                     h3="Оценка соискателя"
                     li
-                        div.rate
+                        div.rate-wrapper
                             div
                                 label="Оценка резюме"
+                                .rate.rate__green
+                                    input(type="radio" name="resume_rate")#resume_star-1
+                                    label(for="resume_star-1")
+                                    input(type="radio" name="resume_rate")#resume_star-2
+                                    label(for="resume_star-2")
+                                    input(type="radio" name="resume_rate")#resume_star-3
+                                    label(for="resume_star-3")
+                                    input(type="radio" name="resume_rate")#resume_star-4
+                                    label(for="resume_star-4")
+                                    input(type="radio" name="resume_rate")#resume_star-5
+                                    label(for="resume_star-5")                                
                             div
                                 label="Оценка тестового задания"
+                                .rate.rate__orange
+                                    input(type="radio" name="testtask_rate")#testtask_star-1
+                                    label(for="testtask_star-1")
+                                    input(type="radio" name="testtask_rate")#testtask_star-2
+                                    label(for="testtask_star-2")
+                                    input(type="radio" name="testtask_rate")#testtask_star-3
+                                    label(for="testtask_star-3")
+                                    input(type="radio" name="testtask_rate")#testtask_star-4
+                                    label(for="testtask_star-4")
+                                    input(type="radio" name="testtask_rate")#testtask_star-5
+                                    label(for="testtask_star-5")      
                             div
                                 label="Оценка собеседования"
+                                .rate.rate__orange
+                                    input(type="radio" name="interview_rate")#interview_star-1
+                                    label(for="interview_star-1")
+                                    input(type="radio" name="interview_rate")#interview_star-2
+                                    label(for="interview_star-2")
+                                    input(type="radio" name="interview_rate")#interview_star-3
+                                    label(for="interview_star-3")
+                                    input(type="radio" name="interview_rate")#interview_star-4
+                                    label(for="interview_star-4")
+                                    input(type="radio" name="interview_rate")#interview_star-5
+                                    label(for="interview_star-5")
+
+                      
 
 
 

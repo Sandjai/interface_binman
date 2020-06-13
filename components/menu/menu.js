@@ -38,8 +38,9 @@ export class Menu {
         switch (item.dataset.action) {
             case "New":
             this._trigger("showForm");
-
+            break;
         }
+        
     }
 
  
