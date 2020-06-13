@@ -54,6 +54,7 @@ input[type="text"]
     height: 36px;
     padding-left: 12px;
 .popup_container
+    overflow: auto!important;
     background-color: #ffffff;
     max-width: 650px;
     width: 100%;
@@ -69,7 +70,8 @@ input[type="text"]
     background: #ffffff;
     width: 30px;
     height: 30px;
-
+.popup_close:hover
+    cursor: pointer;
 .popup_close::before, .popup_close::after
     content: " ";
     position: absolute;
@@ -88,13 +90,51 @@ input[type="text"]
     font-weight: normal;
     font-size: 10px;
     line-height: 12px;
-.rate
+.rate-wrapper
     display: inline-block;
     width: 100%;
-.rate div
+.rate-wrapper div
     display: block;
     float: left;
     max-width: 200px;
     width: 100%;
+.rate
+    max-width: 125px!important;
+    position: relative;
+    float: left!important;
+  
+.rate input 
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+.rate label 
+    background-position: 0 0;
+    float: right;
+    cursor: pointer;
+    margin-right: 8px;
+    position: relative;
+    z-index: 1;
+.rate__green input:checked ~ label, .rate__green label, .rate__green label:hover, .rate__green label:hover ~ label
+    background: url('/assets/images/stars-green.png') no-repeat;
+.rate__orange input:checked ~ label, .rate__orange label, .rate__orange label:hover, .rate__orange label:hover ~ label
+    background: url('/assets/images/stars-orange.png') no-repeat;  
+.rate__green input:checked ~ label, .rate__orange input:checked ~ label
+    background-position: 0 -16px;
+.rate label
+    height: 17px;
+    width: 17px;
+    zoom: 1;
+.rate label:hover, .rate label:hover ~ label
+    background-position: 0 -16px;
+    zoom: 1;
+.rate input 
+    width: 17px;
+    height: 17px;
+  
+
+
+
 
 
