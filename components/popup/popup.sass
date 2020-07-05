@@ -70,7 +70,7 @@ input[type="text"]
     background: #ffffff;
     width: 30px;
     height: 30px;
-.popup_close:hover
+.popup_close:hover, .btn
     cursor: pointer;
 .popup_close::before, .popup_close::after
     content: " ";
@@ -90,14 +90,22 @@ input[type="text"]
     font-weight: normal;
     font-size: 10px;
     line-height: 12px;
-.rate-wrapper
+.rate-wrapper, .btn-wrapper
     display: inline-block;
     width: 100%;
-.rate-wrapper div
+.rate-wrapper div, .btn-wrapper div
     display: block;
     float: left;
-    max-width: 200px;
     width: 100%;
+.rate-wrapper > div
+    max-width: 33%;
+
+.btn-wrapper > div:nth-child(1)
+    margin-right: 5px;
+.btn-wrapper > div:nth-child(2)
+    margin-left: 5px;
+.btn-wrapper
+    margin-bottom: 7rem;
 .rate
     max-width: 125px!important;
     position: relative;
@@ -132,6 +140,43 @@ input[type="text"]
 .rate input 
     width: 17px;
     height: 17px;
+.btn
+    text-lign: center;
+    text-transform: uppercase;
+    border: 1px solid #D4E2E7;
+    border-radius: 3px;
+    font-weight: 700;
+.btn__blue
+    background: #386BF2;
+    color: #ffffff;
+.btn__white
+    background: #FFFFFF;
+    color: #475364;
+.btn__sm
+    width: 104px;
+    height: 26px;
+    line-height: 26px;
+
+.btn__lrg
+    width: 295px;
+    height: 36px;
+    line-height: 36px;
+
+@media all and (min-width: 769px) 
+    .btn__lrg
+        width: 295px;
+    .btn-wrapper > div
+        max-width: calc(50% - 5px);
+   
+
+@media all and (max-width: 768px) 
+    .btn__lrg
+        max-width: 50%;
+    .btn-wrapper > div
+        max-width: 100%;
+        
+
+
   
 
 
