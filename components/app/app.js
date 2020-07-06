@@ -1,10 +1,11 @@
 'use strict';
-import {Header} from "./../header/header";
+import {Header} from "../header/header";
 import './app.sass';
 import { Sidebar } from "../sidebar/sidebar";
 import { Menu } from "../menu/menu";
 import { Table } from "../table/table";
 import { Popup } from "../popup/popup";
+import {LinksService} from "../services/links.service"
 
 
 class App {
@@ -47,9 +48,13 @@ class App {
             el: document.querySelector(".js-table")
         })
 
-        this.table.render({headers: ["Соискатель", "Телефон", "E-mail", "Оценка соискателя"], 
-        content: [["Бинман Иван Натанович", "+7 (900) 800-70-60", "ioan@binman.ru", "Средний балл: 4.0"], ["Бинман Иван Натанович", "+7 (900) 800-70-60", "ioan@binman.ru", "Средний балл: 4.0"]]});
+        //this.table.render({headers: ["Соискатель", "Телефон", "E-mail", "Оценка соискателя"], 
+        //content: [["Бинман Иван Натанович", "+7 (900) 800-70-60", "ioan@binman.ru", "Средний балл: 4.0"], ["Бинман Иван Натанович", "+7 (900) 800-70-60", "ioan@binman.ru", "Средний балл: 4.0"]]});
         
+        LinksService.getLinks((LinksData) => {
+            this.table.render(LinksData);
+        });
+
         this.popup = new Popup ({
             el: el.querySelector(".js-popup")
         })
