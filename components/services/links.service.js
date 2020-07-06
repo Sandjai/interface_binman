@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
-const BASE_URL = '';
+const BASE_URL = 'https://binman-8195a.firebaseio.com/data.json';
+
 
 /** 
  * Data source for links collection
