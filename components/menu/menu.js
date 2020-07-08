@@ -45,7 +45,7 @@ export class Menu {
 
  
 
-              /**
+        /**
          * Подписка на события
          * @param {string} eveName
          * @param {Function} callback

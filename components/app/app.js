@@ -45,7 +45,8 @@ class App {
         
 
         this.table = new Table ({
-            el: document.querySelector(".js-table")
+            el: document.querySelector(".js-table"),
+            data: {}
         })
 
         //this.table.render({headers: ["Соискатель", "Телефон", "E-mail", "Оценка соискателя"], 
@@ -55,12 +56,16 @@ class App {
             this.table.render(LinksData);
         });
 
+       
+
         this.popup = new Popup ({
             el: el.querySelector(".js-popup")
         })
         
         this.menu.addEventListener("showForm", () => this.popup.render());
         this.popup.addEventListener("closeForm", () => this.popup.destroy());
+        this.popup.addEventListener("addPerson", () => this.table.addItem(event.detail.content));
+        
 
         
     }
