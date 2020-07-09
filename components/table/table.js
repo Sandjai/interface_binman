@@ -9,6 +9,7 @@ export class Table {
 
 render({headers=data.headers, content=data.content}) {
     this.el.innerHTML = template({headers, content});
+    this.data = {headers, content};
 }
 
 addItem (item) {
@@ -19,10 +20,9 @@ addItem (item) {
     let el = document.createElement("tr");            
     el.innerHTML = this.ItemHtml(item);
     //el = el.firstElementChild;
-    this.showingData.childNodes[1].append(el);
-   
- 
-   // this.data.items.push(item);
+    this.showingData.childNodes[1].append(el); 
+    //this.data.items.push(item);
+    
 }
 
 ItemHtml(item) {
