@@ -1,5 +1,8 @@
 /* eslint-disable no-undef */
 const BASE_URL = 'https://binman-8195a.firebaseio.com/data.json';
+const headers_URL = 'https://binman-8195a.firebaseio.com/data/headers.json';
+const content_URL = 'https://binman-8195a.firebaseio.com/data/content.json';
+
 
 
 /** 
@@ -55,6 +58,6 @@ export class LinksService {
      * @param {Function} callback
     */
     static putLinks(links, callback) {
-        this._makeRequest('PUT', BASE_URL, links, callback);
+        this._makeRequest('POST', content_URL, links, callback);
     }
 }

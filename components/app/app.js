@@ -54,6 +54,7 @@ class App {
         
         LinksService.getLinks((LinksData) => {
             this.table.render(LinksData);
+            
         });
 
        
@@ -64,7 +65,18 @@ class App {
         
         this.menu.addEventListener("showForm", () => this.popup.render());
         this.popup.addEventListener("closeForm", () => this.popup.destroy());
+        this.popup.addEventListener("addPerson", () => LinksService.putLinks(event.detail.content));
+
         this.popup.addEventListener("addPerson", () => this.table.addItem(event.detail.content));
+        
+
+     
+
+        
+
+
+        
+     
         
 
         
