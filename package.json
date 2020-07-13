@@ -7,7 +7,8 @@
     "server": "./node_modules/.bin/static .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "./node_modules/.bin/eslint components/**/*.js",
-    "build": "./node_modules/.bin/webpack",
+    "build": "webpack --config webpack.build.conf.js",
+    "dev": "webpack-dev-server --open --config webpack.dev.conf.js",
     "start": "./node_modules/.bin/webpack --watch"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^5.0.9"
   }
 }
