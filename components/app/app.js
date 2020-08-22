@@ -49,9 +49,7 @@ class App {
             data: {}
         })
 
-        //this.table.render({headers: ["Соискатель", "Телефон", "E-mail", "Оценка соискателя"], 
-        //content: [["Бинман Иван Натанович", "+7 (900) 800-70-60", "ioan@binman.ru", "Средний балл: 4.0"], ["Бинман Иван Натанович", "+7 (900) 800-70-60", "ioan@binman.ru", "Средний балл: 4.0"]]});
-        
+      
         LinksService.getLinks((LinksData) => {
             this.table.render(LinksData);
             
