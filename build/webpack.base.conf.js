@@ -8,8 +8,8 @@ module.exports = {
 
  output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '/dist'),
-    publicPath: '/dist'
+    path: path.resolve(__dirname, './../dist'),
+    publicPath: '/dist/'
   },
   module: {
     rules: [{
@@ -17,22 +17,7 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/'
     }, 
-    
-    {
-      test: /\.(sass|scss)$/,
-      use: [{
-          loader: "style-loader", // creates style nodes from JS strings
-      }, {
-        loader: 'css-loader',
-        options: { sourceMap: true }
-      }, {
-        loader: 'postcss-loader',
-        options: { sourceMap: true, config: { path: 'postcss.config.js' } }
-      },{
-          loader: "sass-loader" // compiles Sass to CSS
-      }]
-    },
-    
+
     {
       test: /\.css$/,
       use: [
@@ -47,17 +32,40 @@ module.exports = {
         }
       ]
     },
+    
+    {
+      test: /\.s[ac]ss$/i,
+      use: [
+          "style-loader", // creates style nodes from JS strings
+          MiniCssExtractPlugin.loader,
+      {
+        loader: 'css-loader',
+        options: { sourceMap: true }
+      }, {
+        loader: 'postcss-loader',
+        options: { sourceMap: true, config: { path: 'postcss.config.js' } }
+      },{
+          loader: "sass-loader", // compiles Sass to CSS
+          options: { sourceMap: true }
+      }]
+    },
+    
+
 
     {
       test: /\.pug$/,
       loader: 'pug-loader'
     },
+    
 
     {
       test: /\.(png|jpe?g|gif|svg)$/i,
       use: [
         {
           loader: 'file-loader',
+          options: {
+            name: 'assets/[name].[ext]',
+          },
         },
       ],
     },
@@ -68,9 +76,13 @@ module.exports = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[filename].css'
+      filename: '[name].css'
     })
-  ]
+  ],  
+  devServer: {
+      overlay: true
+  },
+  
 
 
 }
