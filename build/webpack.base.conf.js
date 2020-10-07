@@ -1,4 +1,3 @@
-const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
@@ -6,11 +5,7 @@ module.exports = {
     app: './components/app/app.js'
   },
 
- output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, './../dist'),
-    publicPath: '/dist/'
-  },
+ 
   module: {
     rules: [{
       test: /\.js$/,

@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
+const path = require('path')
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   // DEV settings gonna be here
@@ -8,6 +9,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   
    // Source map
    devtool: 'cheap-module-eval-source-map',
+
+   output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, './../dist'),
+    publicPath: '/dist/'
+  },
+
    plugins: [
      new webpack.SourceMapDevToolPlugin({
        filename: "[file].map"
