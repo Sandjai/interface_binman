@@ -2,13 +2,25 @@ thead
     text-transform: uppercase
 .table
     margin-right: 30px
-.favourite::before
-    content: url("/assets/images/icons/favorites.svg")
-    position: absolute
-    width: 100%
-    height: auto
-    top: 0px
-    left: 0px
+
+.favourite, .icon_cross
+    float: left
+    width: 15px
+    height: 15px
+    margin-right: 10px
+
+    &:hover
+        cursor: pointer
+
+.favourite
+    background: url("/assets/images/icons/favorites.svg") no-repeat
+    
+
+.icon_cross
+    background: url("/assets/images/icons/cross.svg") no-repeat
+
+    
+
     
 table
     width: 100%
