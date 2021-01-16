@@ -1,10 +1,15 @@
 table.js-table__data
     thead
         tr
-            each item in headers
-                td
-                    h4=item
             td
+                h4 Соискатель
+            td
+                h4 Телефон
+            td
+                h4 E-mail
+            td
+                h4 Оценка соискателя
+            td                                
     tbody
         each item in content
             include __rowItem/table__rowItem.pug

@@ -5,7 +5,7 @@ export class Popup {
     constructor ({el}) {
         this.el = el;
 
-        this._inintEvents();
+        this._initEvents();
 
         
     }
@@ -25,7 +25,7 @@ export class Popup {
         this.el.addEventListener(eveName, callback)
     }
 
-    _inintEvents() {
+    _initEvents() {
         this.el.addEventListener("click", this._clickAct.bind(this));
         this.el.addEventListener("submit", this._onSubmit.bind(this));        
     }
@@ -36,7 +36,8 @@ export class Popup {
         this._trigger("addPerson", {
             content: [this.el.querySelector('input[name="flname"]').value,  
             this.el.querySelector('input[name="phone"]').value, this.el.querySelector('input[name="email"]').value, 
-            `Средний балл: ${this._countRate()}`]
+            `Средний балл: ${this._countRate()}`],
+            favourite: true
         })
         event.target.reset();
 
