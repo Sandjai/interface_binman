@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const BASE_URL = 'https://binman-8195a.firebaseio.com/data.json',
       content_URL = 'https://binman-8195a.firebaseio.com/data/content/',
+      contentDir_URL = 'https://binman-8195a.firebaseio.com/data/content.json',
       headers_URL = 'https://binman-8195a.firebaseio.com/data/headers/';
 
 
@@ -68,6 +69,7 @@ export class LinksService {
     static getLinks(callback) {
         this._makeRequest('GET', BASE_URL, undefined, callback);
     }
+    
 
     /** 
      * Update collections
@@ -80,14 +82,11 @@ export class LinksService {
            key = myRef.getKey(),
            path = content_URL + key + '.json';
        this._makeRequest('PUT', path, links, callback);
-       let pathToID = headers_URL + 'users/id' + key + '.json',
-           usersData = {favourite: true};
-       this._makeRequest('PUT', pathToID, usersData, callback);
-       
+     
     }
 
 
-    static removeItem(item) {
+  /*  static removeItem(item) {
 alert(item);
         firebase.database().ref().child('data/content')
 .orderByChild("0")
@@ -102,22 +101,35 @@ let path = 'data/content/' + child.key,
     adaRef = firebase.database().ref().child(path);
 adaRef.remove();
 
+*/
+
+  static removeItem(item) {
+
+var ref = firebase.database().ref("data/content");
+ref.once("value")
+  .then(function(snapshot) {
+
+        snapshot.forEach(function(childSnapshot) {
+      
+        var key = childSnapshot.child("fieldsData").val();
+       if (key[0] === item) {
+                let path = 'data/content/' + childSnapshot.key;
+            var adaRef = firebase.database().ref().child(path)
+            adaRef.remove();    
+            return;
+            }
 
 
-// let uid = firebase.database().ref().child("content").push().getKey(),
- //   pathToID = content_URL + uid + '.json';
+          
+              
 
 
-
-
-    })
 
 
 })
-    }
-
+})
 }
-
+}
 /* firebase.database().ref().child('data/content')
 .orderByChild("0")
 .equalTo("test23")

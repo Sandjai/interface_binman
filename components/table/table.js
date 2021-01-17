@@ -11,7 +11,7 @@ export class Table {
         
     }
 
-render({content=data.content}) {
+render({content}) {
     this.el.innerHTML = template({content});
     this.data = {content};
 
@@ -21,6 +21,7 @@ addItem (item) {
 
 
 LinksService.putLinks(item);
+
     // eslint-disable-next-line no-undef
     let el = document.createElement("tr");            
     el.innerHTML = this.ItemHtml(item);

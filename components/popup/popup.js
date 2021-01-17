@@ -34,10 +34,12 @@ export class Popup {
         event.preventDefault();
 
         this._trigger("addPerson", {
-            content: [this.el.querySelector('input[name="flname"]').value,  
+            content: {
+                fieldsData: [this.el.querySelector('input[name="flname"]').value,  
             this.el.querySelector('input[name="phone"]').value, this.el.querySelector('input[name="email"]').value, 
             `Средний балл: ${this._countRate()}`],
-            favourite: true
+            favourite: true}
+            
         })
         event.target.reset();
 
