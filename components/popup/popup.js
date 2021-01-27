@@ -1,5 +1,5 @@
 import template from "./popup.pug";
-import {Menu} from "../menu/menu"
+
 
 export class Popup {
     constructor ({el}) {
@@ -10,9 +10,84 @@ export class Popup {
         
     }
 
+    _addFormValidationListeners() {
+
+        let inputs_Collection = this.el.querySelectorAll("input");
+        for (let i = 0; i<=inputs_Collection.length; i++) {
+           if (inputs_Collection[i] != undefined) {
+            
+            inputs_Collection[i].addEventListener('invalid', function(event){
+                event.preventDefault();
+                this.classList.add('error');            
+            })
+
+            inputs_Collection[i].addEventListener('change', function(event){                
+                this.classList.remove('error');
+            })
+   
+
+        }
+    }
+
+    this.el.querySelector("input").focus();
+
+    let rateCollection = this.el.querySelectorAll(".js-rate");
+
+    for (let i = 0; i<=rateCollection.length; i++ ) {
+
+        if (rateCollection[i] != undefined) {
+            rateCollection[i].addEventListener("change", () => {
+       
+                let resume_rate = this.el.querySelectorAll('input[name="resume_rate"]:checked').length,
+                testtask_rate = this.el.querySelectorAll('input[name="testtask_rate"]:checked').length,
+                interview_rate = this.el.querySelectorAll('input[name="interview_rate"]:checked').length; 
+        
+                if((resume_rate && testtask_rate && interview_rate) != 0) {
+                   
+                    this.el.querySelector('.js-error-rate').classList.add('isVisuallyHidden');
+                }
+            })
+        }
+  
+  
+    }
+
+
+    document.getElementById('emailId').addEventListener("change", function() {
+        document.querySelector('.js-error-email').classList.add('isVisuallyHidden'); 
+        
+        let rowsCollection = document.querySelector('.js-table__data tbody').rows;
+    
+        for (let i = 0; i <= rowsCollection.length; i++) {
+            if(rowsCollection[0].childNodes[2].innerText === document.getElementById('emailId').value) {
+                event.preventDefault();
+                document.getElementById('js-popup__btn').disabled=true;
+                this.classList.add('error');  
+                document.querySelector('.js-error-email').classList.remove('isVisuallyHidden');        
+                 
+            }
+
+            else document.getElementById('js-popup__btn').disabled=false;
+        }
+
+    })
+
+
+   
+      
+    
+    
+   
+    
+
+        
+    }
+
     render() {
         this.el.classList.add('active');
-        this.el.innerHTML = template();
+     
+            this.el.innerHTML = template();
+            this._addFormValidationListeners();    
     }
 
 
@@ -27,7 +102,8 @@ export class Popup {
 
     _initEvents() {
         this.el.addEventListener("click", this._clickAct.bind(this));
-        this.el.addEventListener("submit", this._onSubmit.bind(this));        
+        this.el.addEventListener("submit", this._onSubmit.bind(this));
+          
     }
 
     _onSubmit(event) {

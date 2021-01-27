@@ -1,3 +1,5 @@
+$error-color: #ff0000 
+$color_grey: #D4E2E7
 .popup_container___form h3
     font-family: Roboto
     font-style: normal
@@ -39,7 +41,7 @@ ul li
     margin: 8px 0px 20px 0px
 ul li *
     display: block
-    margin: 8px 0px
+    margin: 8px 0px 0px 0px
 .popup_container form
     margin-top: 16px
 .popup_container header, .popup_container___form
@@ -143,7 +145,7 @@ input[type="text"]
 .btn
     text-align: center
     text-transform: uppercase
-    border: 1px solid #D4E2E7
+    border: 1px solid $color_grey
     border-radius: 3px
     font-weight: 500
     font-size: 11px
@@ -152,9 +154,12 @@ input[type="text"]
         -webkit-box-shadow: inset 0px 11px 9px -9px rgba(0,0,0,0.47)
         -moz-box-shadow: inset 0px 11px 9px -9px rgba(0,0,0,0.47)
         box-shadow: inset 0px 11px 9px -9px rgba(0,0,0,0.47)
+    &:focus
+        outline: 0px!important
 .btn__blue
     background: #386BF2
     color: #ffffff
+    width: 100%
 .btn__white
     background: #FFFFFF
     color: #475364
@@ -168,17 +173,30 @@ input[type="text"]
     height: 36px
     line-height: 36px
 
-@media all and (min-width: 769px) 
+.error
+    border: 1px solid $error-color!important
+
+.error-msg
+    color: $error-color
+
+.isVisuallyHidden
+    display: none;
+
+@media all and (min-width: 768px) 
 
     .btn-wrapper > div
         max-width: calc(50% - 5px)
    
 
-@media all and (max-width: 768px) 
+@media all and (max-width: 767px) 
+    .btn
+        margin-bottom: 1.5rem
     .btn__lrg
-        max-width: 50%
+        max-width: 90%
     .btn-wrapper > div
         max-width: 100%
+    .popup_close 
+        display: none
         
 
 

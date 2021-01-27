@@ -1,5 +1,8 @@
 import template from "./menu.pug";
 import Popup from "../popup/popup";
+import {LinksService} from "../services/links.service";
+
+
 /**
  *
  *
@@ -11,10 +14,25 @@ export class Menu {
         this.el = el;
         this.initEvents();
     }
-    render(perNum) {
-        this.el.innerHTML = template({perNum});
+    render() {
 
-    }
+       LinksService.getNumber((collection) => {
+
+        let contactsNum;
+        if (collection != (undefined || null)) {
+            contactsNum = Object.keys(collection).length;
+        }
+        else {contactsNum = 0}
+        
+            this.el.innerHTML = template({contactsNum});
+                
+        });
+       
+   
+            
+       }
+        
+
 
     initEvents() {
         this.el.addEventListener("click", this._onClick.bind(this));
@@ -36,9 +54,15 @@ export class Menu {
         event.preventDefault();
         let item = event.target;
         switch (item.dataset.action) {
-            case "New":
+            case "new":
             this._trigger("showForm");
             break;
+
+            case "addToFavourite":
+            this._trigger("showFavourite");
+            break;
+
+
         }
         
     }

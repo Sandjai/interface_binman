@@ -3,6 +3,7 @@ const BASE_URL = 'https://binman-8195a.firebaseio.com/data.json',
       content_URL = 'https://binman-8195a.firebaseio.com/data/content/',
       contentDir_URL = 'https://binman-8195a.firebaseio.com/data/content.json',
       headers_URL = 'https://binman-8195a.firebaseio.com/data/headers/';
+      
 
 
 let firebaseConfig  = {
@@ -59,8 +60,15 @@ export class LinksService {
     }
 
 
-
+    /**
+     * Get collection to know the number 
+     * @param {Function} callback 
+     */
   
+
+    static getNumber(callback) {
+        this._makeRequest('GET', contentDir_URL, undefined, callback)
+    }
 
     /** 
      * Get collection
@@ -86,6 +94,9 @@ export class LinksService {
     }
 
 
+
+
+
   /*  static removeItem(item) {
 alert(item);
         firebase.database().ref().child('data/content')
@@ -103,32 +114,34 @@ adaRef.remove();
 
 */
 
-  static removeItem(item) {
-
-var ref = firebase.database().ref("data/content");
-ref.once("value")
-  .then(function(snapshot) {
-
-        snapshot.forEach(function(childSnapshot) {
-      
-        var key = childSnapshot.child("fieldsData").val();
-       if (key[0] === item) {
-                let path = 'data/content/' + childSnapshot.key;
-            var adaRef = firebase.database().ref().child(path)
-            adaRef.remove();    
-            return;
-            }
-
-
-          
+  static removeItem(item, callback) {   
+        
+        var ref = firebase.database().ref("data/content");
+        let path;
+     
+        ref.once("value")
+            .then(function(snapshot) {
+               
+                snapshot.forEach(function(childSnapshot) {        
+                   
+                    let key = childSnapshot.child("fieldsData").val();        
+                    if (key[2] === item) {  
+                           
+                        path = "data/content/" + childSnapshot.key;                  
+                  
+                        
+                        var adaRef = firebase.database().ref().child(path)
+                        adaRef.remove();   
+                        callback();           
+                        return;
+                    } 
+                })
               
-
-
-
-
-})
-})
-}
+            }) 
+          
+            
+            
+    }
 }
 /* firebase.database().ref().child('data/content')
 .orderByChild("0")

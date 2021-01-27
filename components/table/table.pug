@@ -1,4 +1,4 @@
-table.js-table__data
+table.js-table__data    
     thead
         tr
             td
@@ -11,5 +11,6 @@ table.js-table__data
                 h4 Оценка соискателя
             td                                
     tbody
-        each item in content
-            include __rowItem/table__rowItem.pug
+        if content
+            each item in content
+                include __rowItem/table__rowItem.pug

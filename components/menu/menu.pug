@@ -1,8 +1,8 @@
 .menu__title
     h2="Ваши соискатели"
-    p="Всего соискателей: " +perNum
+    p="Всего соискателей: " +contactsNum
 .menu__buttons
     .btn_favourites
-        button.favourites="Избранные"
+        button.favourites(data-action="addToFavourite")="Избранные"
     .btn_newPerson
-        button.newPerson(data-action="New")="Добавить соискателя"
+        button.newPerson(data-action="new")="Добавить соискателя"

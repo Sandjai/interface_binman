@@ -11,16 +11,18 @@ section.popup_container
                     h3="Основные данные"
                     li
                         label(for="nameId")="ФИО"
-                        input(type="text", name="flname", placeholder="Введите ФИО", required="required")#nameId
+                        input(type="text", name="flname", placeholder="Введите ФИО", required="required", class="js-simple-input")#nameId
 
                 .form__group
                     h3="Контактные данные"
                     li
                         label(for="phoneId")="Номер телефона"
-                        input(type="text", name="phone", placeholder="Введите номер телефона", required="required")#phoneId
+                        input(type="text", name="phone", placeholder="Введите номер телефона", required="required", class="js-simple-input")#phoneId
                     li
                         label(for="emailId")="E-mail"
-                        input(type="text", name="email", placeholder="Введите адрес электронной почты", required="required")#emailId
+                        input(type="text", name="email", placeholder="Введите адрес электронной почты", required="required", class="js-simple-input")#emailId
+                        .js-error-email.isVisuallyHidden
+                            p.error-msg="Соискатель с таким email уже существует"
 
 
                 .form__group
@@ -30,48 +32,51 @@ section.popup_container
                             div
                                 label="Оценка резюме"
                                 .rate.rate__green
-                                    input(type="radio" name="resume_rate" value="5" data-action="count" required="required")#resume_star-1
+                                    input(type="radio" name="resume_rate" value="5" data-action="count" required="required" class="js-rate")#resume_star-1
                                     label(for="resume_star-1")
-                                    input(type="radio" name="resume_rate" value="4" data-action="count")#resume_star-2
+                                    input(type="radio" name="resume_rate" value="4" data-action="count" class="js-rate")#resume_star-2
                                     label(for="resume_star-2")
-                                    input(type="radio" name="resume_rate" value="3" data-action="count")#resume_star-3
+                                    input(type="radio" name="resume_rate" value="3" data-action="count" class="js-rate")#resume_star-3
                                     label(for="resume_star-3")
-                                    input(type="radio" name="resume_rate" value="2" data-action="count")#resume_star-4
+                                    input(type="radio" name="resume_rate" value="2" data-action="count" class="js-rate")#resume_star-4
                                     label(for="resume_star-4")
-                                    input(type="radio" name="resume_rate" value="1" data-action="count")#resume_star-5
+                                    input(type="radio" name="resume_rate" value="1" data-action="count" class="js-rate")#resume_star-5
                                     label(for="resume_star-5")                                
                             div
                                 label="Оценка тестового задания"
                                 .rate.rate__orange
-                                    input(type="radio" name="testtask_rate" value="5" data-action="count" required="required")#testtask_star-1
+                                    input(type="radio" name="testtask_rate" value="5" data-action="count" required="required" class="js-rate")#testtask_star-1
                                     label(for="testtask_star-1")
-                                    input(type="radio" name="testtask_rate" value="4" data-action="count")#testtask_star-2
+                                    input(type="radio" name="testtask_rate" value="4" data-action="count" class="js-rate")#testtask_star-2
                                     label(for="testtask_star-2")
-                                    input(type="radio" name="testtask_rate" value="3" data-action="count")#testtask_star-3
+                                    input(type="radio" name="testtask_rate" value="3" data-action="count" class="js-rate")#testtask_star-3
                                     label(for="testtask_star-3")
-                                    input(type="radio" name="testtask_rate" value="2" data-action="count")#testtask_star-4
+                                    input(type="radio" name="testtask_rate" value="2" data-action="count" class="js-rate")#testtask_star-4
                                     label(for="testtask_star-4")
-                                    input(type="radio" name="testtask_rate" value="1" data-action="count")#testtask_star-5
+                                    input(type="radio" name="testtask_rate" value="1" data-action="count" class="js-rate")#testtask_star-5
                                     label(for="testtask_star-5")      
                             div
                                 label="Оценка собеседования"
                                 .rate.rate__orange(data-action="count")
-                                    input(type="radio" name="interview_rate" value="5" data-action="count" required="required")#interview_star-1
+                                    input(type="radio" name="interview_rate" value="5" data-action="count" required="required" class="js-rate")#interview_star-1
                                     label(for="interview_star-1")
-                                    input(type="radio" name="interview_rate" value="4" data-action="count")#interview_star-2
+                                    input(type="radio" name="interview_rate" value="4" data-action="count" class="js-rate")#interview_star-2
                                     label(for="interview_star-2")
-                                    input(type="radio" name="interview_rate" value="3" data-action="count")#interview_star-3
+                                    input(type="radio" name="interview_rate" value="3" data-action="count" class="js-rate")#interview_star-3
                                     label(for="interview_star-3")
-                                    input(type="radio" name="interview_rate" value="2" data-action="count")#interview_star-4
+                                    input(type="radio" name="interview_rate" value="2" data-action="count" class="js-rate")#interview_star-4
                                     label(for="interview_star-4")
-                                    input(type="radio" name="interview_rate" value="1" data-action="count")#interview_star-5
+                                    input(type="radio" name="interview_rate" value="1" data-action="count" class="js-rate")#interview_star-5
                                     label(for="interview_star-5")
-                div.btn-wrapper
+
+                        .js-error-rate
+                            p.error-msg="Необходимо указать все оценки соискателя"
+                .btn-wrapper
                     div
                         .btn.btn__white.btn__lrg(data-action="close")="Отменить"
                             
                     div
-                        button.btn.btn__blue.btn__lrg(type="submit", data-action="sbmt")="Добавить соискателя"
+                        button.btn.btn__blue.btn__lrg#js-popup__btn(type="submit", data-action="sbmt")="Добавить соискателя"
                         
 
                       

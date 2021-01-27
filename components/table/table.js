@@ -12,21 +12,23 @@ export class Table {
     }
 
 render({content}) {
+
+
     this.el.innerHTML = template({content});
     this.data = {content};
+
 
 }
 
 addItem (item) {
-
-
-LinksService.putLinks(item);
+    
+LinksService.putLinks(item, () => this._trigger("update"));
 
     // eslint-disable-next-line no-undef
     let el = document.createElement("tr");            
     el.innerHTML = this.ItemHtml(item);
     //el = el.firstElementChild;
-    this.showingData.childNodes[1].append(el); 
+    this.showingData.childNodes[2].append(el); 
     //this.data.items.push(item);
     
 }
@@ -54,7 +56,7 @@ _makeEvent(event) {
     switch (item.dataset.action) {
         case("remove"):
         
-        this._trigger("remove", [item.closest("tr"), item.closest("tr").cells[0].innerText]);
+        this._trigger("remove", [item.closest("tr"), item.closest("tr").cells[2].innerText]);
         
         break;
     }
@@ -67,10 +69,16 @@ _trigger (eveName, eveData) {
 
 removeItem (item) {
     
-    LinksService.removeItem(item[1]);
+    LinksService.removeItem(item[1], () => this._trigger("update"));
+    
     item[0].remove();
     
     
+}
+
+
+filterFavourite () {
+    alert('okkk');
 }
     
 
@@ -80,7 +88,11 @@ removeItem (item) {
  * @returns {ELEMENT_NODE}
  */
 get showingData () {
-    return document.querySelector('.js-table__data');
+ 
+        return document.querySelector('.js-table__data');
+  
+
+    
 }
 
 

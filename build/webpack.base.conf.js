@@ -1,8 +1,9 @@
+require('babel-polyfill');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: {
-    app: './components/app/app.js'
+    app:  ['babel-polyfill', './components/app/app.js']
   },
 
  
@@ -12,6 +13,8 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/'
     }, 
+
+  
 
     {
       test: /\.css$/,

@@ -24,15 +24,19 @@ class App {
         this.sidebar.render([
             {
                 source: "assets/images/icons/Home.svg",
-                par: "Home"
+                par: "Home",
+                titleText: "Раздел в разработке"
             },
             {
                 source: "assets/images/icons/Clients.svg",
-                par: "Clients"
+                par: "Clients",
+                titleText: ""
             },
             {
                 source: "assets/images/icons/Reports.svg",
-                par: "Reports"
+                par: "Reports",
+                titleText: "И этот раздел не готов тоже"
+
             },
 
         ])
@@ -41,7 +45,11 @@ class App {
             el: el.querySelector('.js-menu')
         })
 
-        this.menu.render('12');
+       
+         
+      
+
+        this.menu.render();
         
 
         this.table = new Table ({
@@ -69,9 +77,17 @@ class App {
 
         
         this.menu.addEventListener("showForm", () => this.popup.render());
+        this.table.addEventListener("update", () => this.menu.render());
+        this.menu.addEventListener("showFavourite", () => this.table.filterFavourite());
         this.popup.addEventListener("closeForm", () => this.popup.destroy());        
-        this.popup.addEventListener("addPerson", () => this.table.addItem(event.detail.content));      
-        this.table.addEventListener("remove", () => this.table.removeItem(event.detail));
+        this.popup.addEventListener("addPerson", () => {this.table.addItem(event.detail.content);
+            this.popup.destroy()});      
+        this.table.addEventListener("remove", () => {
+            
+            this.table.removeItem(event.detail)} )
+            
+          
+      
         
 
      
