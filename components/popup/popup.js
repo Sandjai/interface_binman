@@ -59,7 +59,7 @@ export class Popup {
         let rowsCollection = document.querySelector('.js-table__data tbody').rows;
     
         for (let i = 0; i <= rowsCollection.length; i++) {
-            if(rowsCollection[0].childNodes[2].innerText === document.getElementById('emailId').value) {
+            if(rowsCollection[i].childNodes[2].innerText === document.getElementById('emailId').value) {
                 event.preventDefault();
                 document.getElementById('js-popup__btn').disabled=true;
                 this.classList.add('error');  
