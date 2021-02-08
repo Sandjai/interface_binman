@@ -59,8 +59,9 @@ class App {
 
       
         LinksService.getLinks((LinksData) => {
+
             this.table.render(LinksData);
-            
+           
         });
 
        
@@ -78,14 +79,18 @@ class App {
         
         this.menu.addEventListener("showForm", () => this.popup.render());
         this.table.addEventListener("update", () => this.menu.render());
-        this.menu.addEventListener("showFavourite", () => this.table.filterFavourite());
+        this.menu.addEventListener("showFavourite", () => this.table.filterFavourite())
         this.popup.addEventListener("closeForm", () => this.popup.destroy());        
         this.popup.addEventListener("addPerson", () => {this.table.addItem(event.detail.content);
             this.popup.destroy()});      
         this.table.addEventListener("remove", () => {
             
             this.table.removeItem(event.detail)} )
-            
+
+            this.table.addEventListener("favourite", () => this.table.setFavourite(event.detail));
+          
+
+         
           
       
         

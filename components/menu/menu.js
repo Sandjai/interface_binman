@@ -62,6 +62,10 @@ export class Menu {
             this._trigger("showFavourite");
             break;
 
+            case "updateTable":
+            this._trigger("updateTable");
+            break;
+
 
         }
         

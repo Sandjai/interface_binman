@@ -1,9 +1,18 @@
+
+mixin favourite(item)
+    if item.favourite
+        .js-favourite.favourite.favourite__true(data-action="favourite")
+        .icon_cross(data-action="remove")
+    else
+        .favourite.favourite__false(data-action="favourite")
+        .icon_cross(data-action="remove")
+
+
 mixin addRowItem(item)
     tr
-        each val in item.fieldsData
+        each val in item.fieldsData            
             td
                 h3=val
         td
-            .favourite
-            .icon_cross(data-action="remove")
+            +favourite(item)
 +addRowItem(item)

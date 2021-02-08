@@ -58,7 +58,7 @@ export class Popup {
         
         let rowsCollection = document.querySelector('.js-table__data tbody').rows;
     
-        for (let i = 0; i <= rowsCollection.length; i++) {
+        for (let i = 0; i < rowsCollection.length; i++) {
             if(rowsCollection[i].childNodes[2].innerText === document.getElementById('emailId').value) {
                 event.preventDefault();
                 document.getElementById('js-popup__btn').disabled=true;
@@ -114,7 +114,7 @@ export class Popup {
                 fieldsData: [this.el.querySelector('input[name="flname"]').value,  
             this.el.querySelector('input[name="phone"]').value, this.el.querySelector('input[name="email"]').value, 
             `Средний балл: ${this._countRate()}`],
-            favourite: true}
+            favourite: false}
             
         })
         event.target.reset();

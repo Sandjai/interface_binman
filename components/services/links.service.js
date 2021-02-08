@@ -77,7 +77,20 @@ export class LinksService {
     static getLinks(callback) {
         this._makeRequest('GET', BASE_URL, undefined, callback);
     }
-    
+
+
+
+  /*  static showFavourities(callback) {
+        var ref = firebase.database().ref("data/content");
+        ref.orderByChild("favourite").equalTo(true).on("child_added", function(snapshot) {
+            callback(snapshot.key);
+          });
+       
+
+                    }    */
+         
+
+  
 
     /** 
      * Update collections
@@ -142,6 +155,52 @@ adaRef.remove();
             
             
     }
+
+
+    static favourite (item, trueOrFalse) {   
+        
+        var ref = firebase.database().ref("data/content");
+        let path;
+     
+        ref.once("value")
+            .then(function(snapshot) {
+               
+                snapshot.forEach(function(childSnapshot) {        
+                   
+                    let key = childSnapshot.child("fieldsData").val();        
+                    if (key[2] === item) {  
+                           
+                        path = "data/content/" + childSnapshot.key + "/favourite";
+                        
+                      
+
+
+                        let pathToFavourite = firebase.database().ref(path);
+                       
+
+                        pathToFavourite.set(trueOrFalse)
+  .then(function() {
+    console.log('Synchronization succeeded');
+  })
+  .catch(function(error) {
+    console.log('Synchronization failed');
+  });
+
+
+                        
+                        
+                        return;
+                    } 
+                   
+                })
+              
+            }) 
+          
+            
+            
+    }
+
+
 }
 /* firebase.database().ref().child('data/content')
 .orderByChild("0")

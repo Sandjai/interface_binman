@@ -59,7 +59,26 @@ _makeEvent(event) {
         this._trigger("remove", [item.closest("tr"), item.closest("tr").cells[2].innerText]);
         
         break;
-    }
+
+       
+        case("favourite"):
+       
+        if(item.classList.contains('js-favourite')) {
+            this._trigger("favourite", [item.closest("tr").cells[2].innerText, false]);
+            item.classList.remove('js-favourite', 'favourite__true');
+            item.classList.add('favourite__false');            
+        }
+
+        else {
+            this._trigger("favourite", [item.closest("tr").cells[2].innerText, true]);
+            item.classList.remove('favourite__false');  
+            item.classList.add('js-favourite', 'favourite__true');  
+        }
+        
+        
+        break;
+
+}
 }
 
 _trigger (eveName, eveData) {
@@ -76,9 +95,33 @@ removeItem (item) {
     
 }
 
+setFavourite (item) {
+    
+    LinksService.favourite(item[0], item[1]);
+   
+    
+    
+}
 
-filterFavourite () {
-    alert('okkk');
+
+
+filterFavourite (callback) {
+
+    let rowsCollection = document.querySelector('.js-table__data tbody').rows;
+    
+    for (let i = 0; i < rowsCollection.length; i++) {
+        if(!(rowsCollection[i].childNodes[4].firstChild.classList.contains('js-favourite'))) {
+            rowsCollection[i].classList.toggle('isVisuallyHidden');
+        } 
+
+
+
+
+        }
+       
+    
+    
+
 }
     
 
